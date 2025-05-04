@@ -1,0 +1,273 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.suggestions-list {
+    margin-top: 1em;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    z-index: 1000;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.suggestions-list li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.suggestions-list li:hover {
+    background-color: #f0f0f0;
+}
+
+.find-input {
+    border: 1px solid;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.card_product {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 10px;
+    box-shadow: 0 0 8px #e2e2e2ad;
+    transition: transform 0.3s;
+    width: 500px;
+    user-select: none;
+    position: relative;
+    overflow: hidden;
+}
+
+.card_product::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* вот эти лефт райт и тд занимает площадь элемента кард продукт */
+    border-radius: inherit;
+    padding: 3px;
+    background: linear-gradient(to bottom, #A6E196, #21616A);
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    /* маска делает центр прозрачный, чтобы видны были только края */
+    mask-composite: exclude;
+    z-index: -1;
+    /* ну это передвигает назад, чтобы не перекрывал текст */
+}
+
+.card-content {
+    flex: 1;
+}
+
+.more-button {
+    background-color: #d2d2d2;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+    padding: 10px;
+}
+
+.cards {
+    display: flex;
+
+    justify-content: space-around;
+    margin-top: 2em;
+    flex-wrap: wrap;
+}
+
+.card-image {
+    justify-content: end;
+}
+
+.modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.modal-content {
+    justify-content: flex;
+    background-color: #ffffff;
+    padding: 30px;
+    flex-wrap: wrap;
+    border-radius: 10px;
+    min-width: 400px;
+    overflow-y: auto;
+    max-height: 80vh;
+    min-height: 600px;
+
+}
+
+.modal-description {
+    font-weight: bold;
+}
+
+.modal-close {
+    cursor: pointer;
+    display: flex;
+    font-size: 15pt;
+    margin-bottom: 1em;
+    border: 1px solid;
+    width: fit-content;
+    padding-right: 8px;
+    padding-left: 8px;
+    background-color: #d2d2d2;
+    transition: background-color 0.2s;
+    border-radius: 5px;
+}
+
+.modal-close:hover {
+    background-color: #ababab;
+}
+
+.more-button:hover {
+    background-color: #ababab;
+}
+
+.card_product:hover {
+    transform: scale(1.05);
+}
+
+
+.menuPhone {
+    display: none;
+}
+
+.profilePic {
+    display: flex;
+    justify-content: center;
+    margin-top: 3em;
+}
+
+.profilePic img {
+    border-radius: 50%;
+    max-width: 300px;
+}
+
+.profileName {
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.profileInfo {
+    background-color: #ccc;
+    padding: 1em;
+    margin: 2em;
+    border-radius: 10px;
+}
+
+.profileTarget {
+    background-color: #ccc;
+    padding: 1em;
+    margin: 2em;
+    border-radius: 10px;
+}
+
+.dietCard {
+    background-color: #59A883;
+    padding: 2em;
+    margin-top: 3em;
+    margin: 2em;
+    border-radius: 10px;
+    color: #fff;
+}
+
+.addDiet {
+    width: 100px;
+    height: 100px;
+    background-color: #A6E196;
+    text-align: center;
+    margin: 2em auto;
+    position: relative;
+    top: 500px;
+    border-radius: 30px;
+    font-size: 48px;
+}
+
+.main-color {
+    border-color: #A6E196;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input[type='number'],
+input[type="number"]:hover,
+input[type="number"]:focus {
+    appearance: none;
+    -moz-appearance: textfield;
+}
+
+
+.selectedFood {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    background-color: #ccc;
+    padding: 1em;
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+@media (max-width: 450px) {
+    .pagination {
+        display: none;
+    }
+
+    .menuPhone {
+        display: flex;
+        background-color: #2D7E76;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        justify-content: center;
+        height: 60px;
+        position: fixed;
+        z-index: 1000;
+        width: 100%;
+        bottom: 0;
+        left: 0;
+    }
+
+
+    .unselectedOne,
+    .selectedOne {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 1em;
+        border-radius: 10px;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        margin-left: 2em;
+    }
+
+    .unselectedOne {
+        background-color: #59A883;
+
+    }
+
+    .selectedOne {
+        background-color: #A6E196;
+
+    }
+
+}
